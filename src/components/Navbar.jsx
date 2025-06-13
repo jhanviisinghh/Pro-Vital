@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+import stethoscope from "../assets/images/stethoscope.png";
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,7 +11,13 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="logo">ProVital</div>
+
+        {/* ✅ Logo with image */}
+        <div className="logo">
+        <img src={stethoscope} alt="stethoscope" className="stethoscope-icon" />
+
+          <span className="logo-text">ProVital</span>
+        </div>
 
         {/* Hamburger icon (mobile only) */}
         <div className="hamburger" onClick={toggleMenu}>
@@ -18,26 +26,26 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <li><a href="#">List your practice</a></li>
-          <li><a href="#">For Employers</a></li>
-          <li><a href="#">Courses</a></li>
-          <li><a href="#">Books</a></li>
-          <li><a href="#">Speakers</a></li>
-          <li><a href="#">Doctors</a></li>
+          <li><a href="/" onClick={(e) => e.preventDefault()}>List your practice</a></li>
+          <li><a href="/" onClick={(e) => e.preventDefault()}>For Employers</a></li>
+          <li><a href="/" onClick={(e) => e.preventDefault()}>Courses</a></li>
+          <li><a href="/" onClick={(e) => e.preventDefault()}>Books</a></li>
+          <li><a href="/" onClick={(e) => e.preventDefault()}>Speakers</a></li>
+          <li><a href="/" onClick={(e) => e.preventDefault()}>Doctors</a></li>
 
           {/* Dropdown for Login/Signup */}
           <li className="dropdown">
             <span className="dropdown-title">Login / Signup</span>
             <div className="dropdown-content">
-              <div>
+              <div className="dropdown-row">
                 <strong>Doctor</strong>
-                <a href="#">Login</a>
-                <a href="#">Signup</a>
+                <a href="/" onClick={(e) => e.preventDefault()}>Login</a>
+                <a href="/" onClick={(e) => e.preventDefault()}>Signup</a>
               </div>
-              <div>
+              <div className="dropdown-row">
                 <strong>Patient</strong>
-                <a href="#">Login</a>
-                <a href="#">Signup</a>
+                <a href="/" onClick={(e) => e.preventDefault()}>Login</a>
+                <a href="/" onClick={(e) => e.preventDefault()}>Signup</a>
               </div>
             </div>
           </li>

@@ -1,0 +1,178 @@
+/* SixSteps.css */
+
+.six-steps-section {
+    padding: 40px 20px;
+    background: #f9f9f9;
+  }
+
+  /* Align the main heading and subtitle to the left */
+.six-steps-header {
+  text-align: left; /* Align header text to the left */
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: left; /* Align title to the left */
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #666;
+  text-align: left; /* Align subtitle to the left */
+}
+
+.section-subtitle .highlight {
+  color: #f57c00; /* Orange color for emphasis */
+  font-weight: bold;
+}
+  
+  .steps-scroll-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+  }
+  
+/* Adjust the step-card dimensions */
+  .step-card {
+    min-width: 400px; /* Keep width unchanged */
+    max-width: 400px; /* Keep width unchanged */
+    height: 370px; /* Increased height */
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    margin-top: 20px; /* Add space above the images */
+  }
+    .step-card:hover {
+        transform: translateY(-5px);
+    }
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  
+/* Adjust the image dimensions */
+  .image-wrapper img {
+    width: 380px; /* Reduce width to fit the container */
+    height: 250px; /* Adjust height proportionally */
+    object-fit: cover; /* Ensure the image fits within the dimensions */
+    border-radius: 12px; /* Optional: Add rounded corners */
+    display: block; /* Ensure proper rendering */
+  }
+  
+  .step-tag {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.8); /* White transparent background */
+    color: #000; /* Black text color */
+    padding: 6px 12px; /* Adjust padding for spacing */
+    border-radius: 12px; /* Rounded corners */
+    font-size: 0.9rem; /* Slightly larger font size */
+    display: flex;
+    align-items: center; /* Center emoji and text vertically */
+    gap: 6px; /* Space between emoji and text */
+}
+
+/* Optional: Add emoji styling */
+.step-tag .emoji {
+    font-size: 1.2rem; /* Adjust emoji size */
+  }
+  
+  .step-content {
+    padding: 20px; /* Add padding for spacing */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+text-align: left; /* Left-align the text */
+    justify-content: flex-start; /* Align content to the top */
+    align-items: flex-start; /* Align content to the left */
+  }
+  
+  .step-content h3 {
+    margin: 0 0 10px;
+    font-size: 1rem; /* Reduced font size for headings */
+    font-weight: bold; /* Optional: Keep emphasis */
+  }
+  
+  .step-content p {
+    margin: 0;
+    color: #555;
+    line-height: 1.4;
+font-size: 0.85rem; /* Reduced font size for paragraphs */
+  }
+
+  /* Align the six subheadings (pill navigation) to the left */
+.pill-navigation {
+  display: flex;
+  justify-content: flex-start; /* Align pills to the left */
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px; /* Add space below the pill navigation */
+}
+
+.pill {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background: #fff;
+  color: #333;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.pill.active {
+  background: #000;
+  color: #fff;
+}
+  
+  /* Navigation buttons styling */
+.navigation-buttons {
+  display: flex;
+  gap: 10px;
+  position: absolute; /* Position arrows relative to the section */
+  right: 20px; /* Align arrows to the right corner */
+  bottom: 20px; /* Move arrows to a visible position */
+  z-index: 100; /* Ensure arrows are above other elements */
+}
+
+.nav-button {
+  width: 40px; /* Set width for the circular button */
+  height: 40px; /* Set height for the circular button */
+  border: none;
+  background: #fff; /* White background for the circle */
+  border-radius: 50%; /* Make the button circular */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  font-size: 1.2rem; /* Font size for the arrow */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000; /* Black color for the arrow */
+}
+  
+  /* Mobile friendly touch scroll */
+  .steps-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  .steps-scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+/* Style for italic text */
+.italic {
+  font-style: italic; /* Apply italic styling */
+  color: #f57c00;
+  }
