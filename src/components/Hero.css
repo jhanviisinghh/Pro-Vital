@@ -269,58 +269,63 @@ margin-bottom: 1.2rem;
 /* -------------------- MOBILE VIEW -------------------- */
 @media (max-width: 768px) {
   .hero {
-    padding: 1rem;
+    padding: 0;
     position: relative;
     overflow: hidden;
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom, #f7fdf9, #ffffff); /* Match background gradient */
+  }
+
+  .angled-divider {
+    position: absolute;
+    top: 0;
+    left: -25%;
+    width: 150%;
+    height: 280px;
+    background: linear-gradient(90deg, #f9ce34, #ee2a7b, #6228d7);
+    transform: rotate(-3deg);
+    z-index: 0;
+    opacity: 0.4;
   }
 
   .hero-wrapper {
-    flex-direction: column; /* Stack images and text vertically */
-    width: 100%;
-    gap: 1rem; /* Reduce gap between elements */
+    position: relative;
+    z-index: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero-text {
-    text-align: center; /* Center-align text */
-    margin-top: 1rem;
+    text-align: center;
+    margin-top: 4rem;
+    z-index: 2;
   }
 
-  .hero-heading {
-    font-size: 1.8rem; /* Adjust heading font size */
-    line-height: 1.4;
-    margin-bottom: 0.5rem;
-  }
-
-  .gradient {
-    background: linear-gradient(to right, #4CAF50, #00BCD4); /* Gradient styling */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
+  .hero-heading .line1,
+  .hero-heading .line2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    font-weight: 700;
   }
 
   .hero-subheading {
-    font-size: 1rem; /* Adjust subheading font size */
-    color: #666;
+    font-size: 1rem;
     margin-top: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    color: #444;
   }
 
   .hero-form {
     background: white;
-    border: 1px solid #ccc;
-    border-radius: 12px;
     padding: 1rem;
-    width: 100%;
-    max-width: 350px; /* Restrict maximum width */
-    display: flex;
-    flex-direction: column; /* Stack inputs and button vertically */
-    gap: 0.75rem; /* Reduce gap between elements */
+    border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 2;
   }
 
   .input-wrapper {
@@ -328,8 +333,12 @@ margin-bottom: 1.2rem;
     align-items: center;
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 0.5rem;
-    background: #f9f9f9;
+    background: #f8f8f8;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .input-icon {
+    margin-right: 0.5rem;
   }
 
   .input-wrapper input {
@@ -337,45 +346,42 @@ margin-bottom: 1.2rem;
     border: none;
     background: transparent;
     outline: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .hero-form button {
-    width: 100%; /* Full width for button */
-    height: 50px; /* Adjust button height */
-    font-size: 1rem; /* Adjust font size */
-    border-radius: 6px; /* Adjust border radius */
-    background: linear-gradient(to right, #4CAF50, #00BCD4); /* Gradient background */
+    background-color: #2a6ee9;
     color: white;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .hero-images {
-    width: 100%;
-    display: flex;
-    overflow: hidden;
-    white-space: nowrap; /* Ensure images scroll horizontally */
-    gap: 10px;
-    margin-top: 1rem;
-  }
-
-  .image-column {
-    display: inline-block;
-    animation: scrollImages 20s linear infinite; /* Smooth scrolling animation */
-  }
-
-  .image-column img {
-    height: 100px; /* Adjust image height */
-    width: auto;
-    margin-right: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem;
+    border: none;
     border-radius: 8px;
+    cursor: pointer;
   }
 
-  @keyframes scrollImages {
+  /* Horizontal scrolling images below form */
+  .hero-images.horizontal {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+
+  .image-strip {
+    display: flex;
+    gap: 12px;
+    animation: scrollLeft 30s linear infinite;
+  }
+
+  .image-strip img {
+    height: 120px;
+    width: auto;
+    flex-shrink: 0;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  @keyframes scrollLeft {
     0% {
       transform: translateX(0%);
     }
