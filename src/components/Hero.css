@@ -33,7 +33,7 @@
 }
 
 .hero-images img {
-    width: 300px;  /* Fixed width for all images */
+    width: 400px;  /* Fixed width for all images */
     height: 200px; /* Fixed height for all images */
     object-fit: cover; /* This maintains aspect ratio without distortion */
     border-radius: 8px;
