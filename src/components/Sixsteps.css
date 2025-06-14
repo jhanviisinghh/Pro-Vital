@@ -143,7 +143,7 @@ font-size: 0.85rem; /* Reduced font size for paragraphs */
   gap: 10px;
   position: absolute; /* Position arrows relative to the section */
   right: 20px; /* Align arrows to the right corner */
-  bottom: 20px; /* Move arrows to a visible position */
+  bottom: -230px; /* Move arrows to a visible position */
   z-index: 100; /* Ensure arrows are above other elements */
 }
 
