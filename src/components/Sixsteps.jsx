@@ -52,7 +52,7 @@ const Sixsteps = () => {
 			<div className="six-steps-header">
 				<div className="text-content">
 					<h2 className="section-title">
-						<span className="highlight">Lifestyle as medicine</span>: The six pillars
+						<span className="highlight" >How it works</span>
 					</h2>
 					<p className="section-subtitle">
 						<span className="italic">Lifestyle as medicine:</span> The six pillars

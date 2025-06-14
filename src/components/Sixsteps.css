@@ -7,8 +7,22 @@
 
   /* Align the main heading and subtitle to the left */
 .six-steps-header {
-  text-align: left; /* Align header text to the left */
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.six-steps-header h2 {
+  font-size: 15px;  /* Smaller size for "How it works" */
+  color: #666;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.six-steps-header h3 {
+  font-size: 55px;  /* Larger size for main title */
+  color: #1A1A1A;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .section-title {
@@ -176,3 +190,14 @@ font-size: 0.85rem; /* Reduced font size for paragraphs */
   font-style: italic; /* Apply italic styling */
   color: #f57c00;
   }
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 768px) {
+  .sixsteps-header h2 {
+    font-size: 18px;
+  }
+  
+  .sixsteps-header h3 {
+    font-size: 28px;
+  }
+}
