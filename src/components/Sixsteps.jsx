@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Sixsteps.css";
 
 const stepsData = [
@@ -47,43 +47,87 @@ const stepsData = [
 ];
 
 const Sixsteps = () => {
+	const [activeStep, setActiveStep] = useState(null);
+
+	const handlePillClick = (stepTitle) => {
+		setActiveStep(activeStep === stepTitle ? null : stepTitle);
+	};
+
+	// Add the handleNavigation function
+	const handleNavigation = (direction) => {
+		const currentIndex = stepsData.findIndex(
+			(step) => step.title === activeStep
+		);
+		let newIndex;
+
+		if (direction === "next") {
+			newIndex = currentIndex === stepsData.length - 1 ? 0 : currentIndex + 1;
+		} else {
+			newIndex = currentIndex <= 0 ? stepsData.length - 1 : currentIndex - 1;
+		}
+
+		setActiveStep(stepsData[newIndex].title);
+	};
+
 	return (
 		<section className="six-steps-section">
 			<div className="six-steps-header">
 				<div className="text-content">
 					<h2 className="section-title">
-						<span className="highlight" >How it works</span>
+						<span className="highlight">How it works</span>
 					</h2>
 					<p className="section-subtitle">
 						<span className="italic">Lifestyle as medicine:</span> The six pillars
 					</p>
 				</div>
 				<div className="navigation-buttons">
-					<button className="nav-button">&larr;</button>
-					<button className="nav-button">&rarr;</button>
+					<button
+						className="nav-button"
+						onClick={() => handleNavigation("prev")}
+					>
+						&larr;
+					</button>
+					<button
+						className="nav-button"
+						onClick={() => handleNavigation("next")}
+					>
+						&rarr;
+					</button>
 				</div>
 			</div>
 			<div className="pill-navigation">
-				<button className="pill active">Nutrition</button>
-				<button className="pill">Physical activity</button>
-				<button className="pill">Restorative sleep</button>
-				<button className="pill">Stress management</button>
-				<button className="pill">Social connection</button>
-				<button className="pill">Substance abuse</button>
+				{stepsData.map((step) => (
+					<button
+						key={step.title}
+						className={`pill ${
+							activeStep === step.title ? "active" : ""
+						}`}
+						onClick={() => handlePillClick(step.title)}
+					>
+						{step.title}
+					</button>
+				))}
 			</div>
 			<div className="steps-scroll-container">
-				{stepsData.map((step, index) => (
-					<div key={index} className="step-card">
-						<div className="image-wrapper">
-							<img src={step.image} alt={step.title} />
-							<span className="step-tag">{step.tag}</span>
+				<div className="steps-horizontal-scroll">
+					{stepsData.map((step, index) => (
+						<div
+							key={index}
+							className={`step-card ${
+								activeStep === step.title ? "active" : ""
+							}`}
+						>
+							<div className="image-wrapper">
+								<img src={step.image} alt={step.title} />
+								<span className="step-tag">{step.tag}</span>
+							</div>
+							<div className="step-content">
+								<h3>{step.title}</h3>
+								<p>{step.description}</p>
+							</div>
 						</div>
-						<div className="step-content">
-							<h3>{step.title}</h3>
-							<p>{step.description}</p>
-						</div>
-					</div>
-				))}
+					))}
+				</div>
 			</div>
 		</section>
 	);

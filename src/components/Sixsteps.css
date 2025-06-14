@@ -7,22 +7,8 @@
 
   /* Align the main heading and subtitle to the left */
 .six-steps-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.six-steps-header h2 {
-  font-size: 15px;  /* Smaller size for "How it works" */
-  color: #666;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.six-steps-header h3 {
-  font-size: 55px;  /* Larger size for main title */
-  color: #1A1A1A;
-  font-weight: 600;
-  line-height: 1.2;
+  text-align: left; /* Align header text to the left */
+  margin-bottom: 20px;
 }
 
 .section-title {
@@ -55,7 +41,7 @@
   
 /* Adjust the step-card dimensions */
   .step-card {
-    min-width: 400px; /* Keep width unchanged */
+    min-width: 300px; /* Fixed width for cards */
     max-width: 400px; /* Keep width unchanged */
     height: 370px; /* Increased height */
     background-color: white;
@@ -71,24 +57,25 @@
         transform: translateY(-5px);
     }
   .image-wrapper {
-    position: relative;
-    width: 100%;
-    height: auto;
+    position: relative; /* Make the image wrapper the positioning context */
+    width: 100%; /* Ensure the wrapper matches the card width */
+    height: 250px; /* Set a fixed height for all images */
+    overflow: hidden; /* Prevent overflow */
+    border-radius: 12px; /* Keep rounded corners consistent */
   }
   
 /* Adjust the image dimensions */
   .image-wrapper img {
-    width: 380px; /* Reduce width to fit the container */
-    height: 250px; /* Adjust height proportionally */
-    object-fit: cover; /* Ensure the image fits within the dimensions */
-    border-radius: 12px; /* Optional: Add rounded corners */
-    display: block; /* Ensure proper rendering */
+    width: 100%; /* Make the image fill the container */
+    height: 100%; /* Ensure the image takes the full height */
+    object-fit: cover; /* Maintain aspect ratio and fill the container */
+    display: block; /* Prevent inline spacing issues */
   }
   
   .step-tag {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
+    position: absolute; /* Ensure it stays on top of the image */
+    bottom: 12px; /* Position it near the bottom of the image */
+    right: 12px; /* Align it to the right side of the image */
     background: rgba(255, 255, 255, 0.8); /* White transparent background */
     color: #000; /* Black text color */
     padding: 6px 12px; /* Adjust padding for spacing */
@@ -97,14 +84,10 @@
     display: flex;
     align-items: center; /* Center emoji and text vertically */
     gap: 6px; /* Space between emoji and text */
+    z-index: 10; /* Ensure it appears above the image */
 }
 
-/* Optional: Add emoji styling */
-.step-tag .emoji {
-    font-size: 1.2rem; /* Adjust emoji size */
-  }
-  
-  .step-content {
+.step-content {
     padding: 20px; /* Add padding for spacing */
     display: flex;
     flex-direction: column;
@@ -191,13 +174,37 @@ font-size: 0.85rem; /* Reduced font size for paragraphs */
   color: #f57c00;
   }
 
-/* Mobile responsive adjustments */
-@media screen and (max-width: 768px) {
-  .sixsteps-header h2 {
-    font-size: 18px;
-  }
-  
-  .sixsteps-header h3 {
-    font-size: 28px;
-  }
+.steps-horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    padding: 1rem 0;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.steps-horizontal-scroll::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+.steps-scroll-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.step-card {
+    min-width: 300px; /* Fixed width for cards */
+    flex-shrink: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* When a pill is active, show single card centered */
+.step-card.active {
+    margin: 0 auto; /* Center the card */
+    max-width: 400px; /* Keep the width consistent with other cards */
+    min-width: 300px; /* Ensure the minimum width remains fixed */
+    transition: transform 0.3s ease; /* Keep the hover effect */
 }
