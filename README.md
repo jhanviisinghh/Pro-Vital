@@ -1,70 +1,185 @@
-# Getting Started with Create React App
+# ProVital - Modern Healthcare Appointment Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🌟 Overview
+ProVital simplifies connecting patients with lifestyle medicine experts through an intuitive appointment booking platform.
 
-## Available Scripts
+## 📊 System Architecture
 
-In the project directory, you can run:
+### User Flow
+```mermaid
+graph TD
+    A[User Lands on Homepage] --> B[Hero Section]
+    B --> C[Appointment Form]
+    C --> D{Form Validation}
+    D -->|Valid| E[Submit Request]
+    D -->|Invalid| C
+    
+    subgraph User Journey
+    E --> F[Search Results]
+    F --> G[Doctor Profile]
+    G --> H[Book Appointment]
+    end
 
-### `npm start`
+    subgraph Components
+    B --> I[Navigation]
+    B --> J[Image Carousel]
+    B --> K[Six Steps Process]
+    end
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Component Structure
+```mermaid
+graph LR
+    A[App.jsx] --> B[Navbar]
+    A --> C[Hero]
+    A --> D[SixSteps]
+    
+    C --> E[Form]
+    C --> F[ImageStrip]
+    
+    D --> G[StepCard]
+    D --> H[Navigation]
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Responsive Design Flow
+```mermaid
+graph LR
+    A[Desktop View] --> B[Media Queries]
+    B --> C[Mobile View]
+    
+    subgraph Desktop
+    A --> D[Side by Side Layout]
+    A --> E[Vertical Images]
+    end
+    
+    subgraph Mobile
+    C --> F[Stacked Layout]
+    C --> G[Horizontal Scroll]
+    end
+```
 
-### `npm test`
+## 🚀 Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- Node.js (v16 or higher)
+- npm (v8 or higher)
 
-### `npm run build`
+### Installation
+```bash
+# Clone repository
+git clone https://github.com/yourusername/pro-vital.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Navigate to project directory
+cd pro-vital
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Install dependencies
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Start development server
+npm run dev
+```
 
-### `npm run eject`
+## 📁 Project Structure
+```
+pro-vital/
+├── src/
+│   ├── components/
+│   │   ├── Hero/
+│   │   │   ├── Hero.jsx        # Main landing component
+│   │   │   └── Hero.css        # Hero styles
+│   │   ├── Navbar/
+│   │   │   ├── Navbar.jsx      # Navigation component
+│   │   │   └── Navbar.css      # Navigation styles
+│   │   └── SixSteps/
+│   │       ├── SixSteps.jsx    # Process flow component
+│   │       └── SixSteps.css    # Step styles
+│   ├── assets/
+│   │   └── images/             # Image resources
+│   └── App.jsx                 # Root component
+└── package.json               # Dependencies
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 💻 Technical Stack
+- **Frontend Framework**: React.js 18.0
+- **Build Tool**: Vite
+- **Styling**: CSS3 with Media Queries
+- **State Management**: React Hooks
+- **Version Control**: Git
+- **Package Manager**: npm
+- **Development Environment**: VS Code
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🎨 Design System
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Color Palette
+```css
+:root {
+  --primary: #00BCD4;
+  --secondary: #4CAF50;
+  --text-dark: #1A1A1A;
+  --text-light: #666666;
+  --gradient: linear-gradient(135deg, #FFE4D6, #FFB1C8);
+}
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Typography
+- **Headings**: 32px (Desktop) / 28px (Mobile)
+- **Body Text**: 16px
+- **Input Fields**: 15px
 
-## Learn More
+## 📱 Mobile Optimization
+- Fixed Navigation Header
+- Centered Content Layout
+- Touch-optimized Form Inputs
+- Horizontal Scrolling Galleries
+- Responsive Text Scaling
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🛠️ Development
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Available Commands
+```bash
+# Development server
+npm run dev
 
-### Code Splitting
+# Production build
+npm run build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Preview production
+npm run preview
+```
 
-### Analyzing the Bundle Size
+### Dependencies
+```json
+{
+  "react": "^18.0.0",
+  "react-dom": "^18.0.0",
+  "react-icons": "^4.0.0"
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🔍 Core Components
 
-### Making a Progressive Web App
+### Hero Section
+- Main landing component
+- Appointment booking form
+- Scrolling image showcase
+- Gradient background effects
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Navigation
+- Responsive header
+- Mobile menu integration
+- Brand elements
 
-### Advanced Configuration
+### Six Steps Process
+- Visual process flow
+- Interactive step cards
+- Responsive layout adaptation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🤝 Contributing
+1. Fork repository
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open Pull Request
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
