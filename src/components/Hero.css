@@ -129,7 +129,7 @@
 /* FORM — FIXED TO CENTER BOTTOM, SLIGHTLY OVER IMAGES (Desktop) */
 .hero-form {
     position: absolute;
-    bottom: 150px; /* Adjusted from 50px to 100px to move it higher */
+    bottom: 100px; /* Adjusted from 50px to 100px to move it higher */
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
